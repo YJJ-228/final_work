@@ -23,7 +23,7 @@ class downloader(object):
         response=requests.get(self.url,stream=True)
         total = int(response.headers.get('content-length', 0)) #得到文件长度，初始化为0
         name = self.url.split("/")[-1]
-        with open('D:/Code/Download/file/'+name,'wb')as f,tqdm(    #初始化tqdm
+        with open('D:/Code/final_work/Download/file/'+name,'wb')as f,tqdm(    #初始化tqdm
             desc='下载进度：',
             total=total,
             unit='KB',
@@ -47,17 +47,17 @@ class multi_link_downloader(object):
     async def asyncio_download(self,url_new):
         response=requests.get(url_new)
         name = url_new.split("/")[-1]
-        with open('D:/Code/Download/file/'+name,'wb')as f:
+        with open('D:/Code/final_work/Download/file/'+name,'wb')as f:
             if response.status_code==200:
                 f.write(response.content)
                 print('下载完成')
             else:
                 print('下载失败！')
-    ()
+
     async def asyncio_main(self):
         task_list=[]
         for i in self.urllist:
-            task_list.append(asyncio.create_task(self.asyncio_download(url_new=i)))
+            task_list.append(asyncio.create_task(self.asyncio_download(url_new=i))) #在列表中添加task对象
         await asyncio.wait(task_list)
         print('结束')
 
