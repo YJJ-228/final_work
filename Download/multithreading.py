@@ -3,7 +3,7 @@ import requests
 import time
 import asyncio
 
-class Downloader:
+class Downloader():
 
     # 初始化方法，接受文件链接和线程数作为参数
     def __init__(self, url, num):
