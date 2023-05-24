@@ -47,4 +47,4 @@ class Project1():
 
     def draw_picture5(self):
         draw_funcs = DrawFunctions(self.code,self.beginning,self.ending)
-        draw_funcs.printresult()    
+        draw_funcs.printresult()

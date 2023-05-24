@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./Download"
+        "./Download",
+        "./Data_analyzing"
     ]
 }

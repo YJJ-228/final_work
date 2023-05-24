@@ -3,9 +3,9 @@ import json
 import schedule
 
 #沪A股单日排行
-url='https://push2.eastmoney.com/api/qt/clist/get?fid=f62&po=1&pz=50&pn=1&np=1&fltt=2&invt=2&fs=m:1+t:2+f:!2,m:1+t:23+f:!2&fields=f12,f14,f2,f3,f62,f184,f66,f69,f72,f75,f78,f81,f84,f87,f204,f205,f124,f1,f13'
+url='https://push2.eastmoney.com/api/qt/clist/get?fid=f3&po=1&pz=50&np=1&fltt=2&invt=2&fs=m:0+t:6+f:!2,m:0+t:13+f:!2,m:0+t:80+f:!2,m:1+t:2+f:!2,m:1+t:23+f:!2,m:0+t:7+f:!2,m:1+t:3+f:!2&fields=f12,f14,f2,f3,f62,f184,f66,f69,f72,f75,f78,f81,f84,f87,f204,f205,f124,f1,f13'
 #沪A股三日排行
-# url='https://push2.eastmoney.com/api/qt/clist/get?fid=f267&po=1&pz=50&pn=1&np=1&fltt=2&invt=2&fs=m:1+t:2+f:!2,m:1+t:23+f:!2&fields=f12,f14,f2,f127,f267,f268,f269,f270,f271,f272,f273,f274,f275,f276,f257,f258,f124,f1,f13'
+# url='https://push2.eastmoney.com/api/qt/clist/get?fid=f267&po=1&pz=50&np=1&fltt=2&invt=2&fs=m:1+t:2+f:!2,m:1+t:23+f:!2&fields=f12,f14,f2,f127,f267,f268,f269,f270,f271,f272,f273,f274,f275,f276,f257,f258,f124,f1,f13'
 header={
     'Referer':'http://quote.eastmoney.com/',
     'User-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50',
