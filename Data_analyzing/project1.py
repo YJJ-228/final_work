@@ -5,9 +5,10 @@ from ttkbootstrap.constants import *
 from draw_functions import DrawFunctions
 
 class Project1():
-    def __init__(self,code,year):
+    def __init__(self,code,beginning,ending):
         self.code=code
-        self.year=year
+        self.beginning=beginning
+        self.ending=ending
         self.project_window = ttk.Toplevel()
         self.project_window.title("股票查询结果")
         self.project_window.geometry("400x300")
@@ -33,17 +34,17 @@ class Project1():
         self.btn6.pack(padx=10, pady=10)
 
     def draw_picture1(self):
-        draw_funcs = DrawFunctions(self.code,self.year)
+        draw_funcs = DrawFunctions(self.code,self.beginning,self.ending)
         draw_funcs.draw_picture1()
 
     def draw_picture2(self):
-        draw_funcs = DrawFunctions(self.code,self.year)
+        draw_funcs = DrawFunctions(self.code,self.beginning,self.ending)
         draw_funcs.draw_picture2()
 
     def draw_picture3(self):
-        draw_funcs = DrawFunctions(self.code,self.year)
+        draw_funcs = DrawFunctions(self.code,self.beginning,self.ending)
         draw_funcs.draw_picture3()
 
     def draw_picture5(self):
-        draw_funcs = DrawFunctions(self.code,self.year)
+        draw_funcs = DrawFunctions(self.code,self.beginning,self.ending)
         draw_funcs.printresult()    
