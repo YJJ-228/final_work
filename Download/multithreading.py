@@ -3,7 +3,7 @@ import requests
 import time
 import asyncio
 
-class Downloader():
+class Downloader:
 
     # 初始化方法，接受文件链接和线程数作为参数
     def __init__(self, url, num):
@@ -16,8 +16,6 @@ class Downloader():
         # 获取文件大小，并创建一个同样大小的空文件
         response = requests.head(self.url)
         self.size = int(response.headers['Content-Length'])  # 文件大小
-        with open(self.name, 'wb') as f:
-            f.truncate(self.size)
 
     # 定义一个下载方法，接受开始位置和结束位置作为参数
     async def download(self, start, end):
@@ -26,7 +24,7 @@ class Downloader():
         # 发起请求，获取响应内容
         response = requests.get(self.url, headers=headers, stream=True)
         # 打开文件，并移动指针到开始位置
-        with open('D:/Code/Download/file/video_1','wb')as f:
+        with open('D:/Code/final_work/Download/file/video_D.mp4','wb')as f:
             # 写入响应内容到文件中
             for chunk in response.iter_content(1024):
                 f.write(chunk)
@@ -40,24 +38,16 @@ class Downloader():
         # 记录开始时间
         self.start_time = time.time()
         print(f'开始下载 {self.name} ...')
-        
-        # 创建一个异步事件循环
-        loop = asyncio.get_event_loop()
-        
-        # 循环创建线程，并提交到事件循环中
         tasks = []
         for i in range(self.num):
             start = part * i  # 开始位置
             if i == self.num - 1:  # 最后一个线程
                 end = self.size - 1  # 结束位置
             else:
-                end = start + part - 1  # 结束位置
-            
-            task = loop.run_in_executor(None, self.download, start, end)  # 创建任务
+                end = start + part - 1  # 结束位置 
+            task = asyncio.create_task(self.download(start=start,end=end))  # 创建任务
             tasks.append(task)  # 添加到任务列表
-        
-        await asyncio.gather(*tasks)  # 等待所有任务完成
-        
+        await asyncio.wait(tasks)  # 等待所有任务完成
         print(f'下载完成 {self.name} !')
         
         # 计算并显示总耗时和平均速度
