@@ -2,7 +2,10 @@ import requests
 import json
 import schedule
 
-url = 'http://18.push2.eastmoney.com/api/qt/clist/get?pz=20&po=1&np=1&fltt=2&invt=2&wbp2u=|0|0|0|web&fid=f3&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23,m:0+t:81+s:2048&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152'
+#沪A股单日排行
+# url='https://push2.eastmoney.com/api/qt/clist/get?fid=f62&po=1&pz=50&pn=1&np=1&fltt=2&invt=2&fs=m:1+t:2+f:!2,m:1+t:23+f:!2&fields=f12,f14,f2,f3,f62,f184,f66,f69,f72,f75,f78,f81,f84,f87,f204,f205,f124,f1,f13'
+#沪A股三日排行
+url='https://push2.eastmoney.com/api/qt/clist/get?fid=f267&po=1&pz=50&pn=1&np=1&fltt=2&invt=2&fs=m:1+t:2+f:!2,m:1+t:23+f:!2&fields=f12,f14,f2,f127,f267,f268,f269,f270,f271,f272,f273,f274,f275,f276,f257,f258,f124,f1,f13'
 header={
     'Referer':'http://quote.eastmoney.com/',
     'User-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50',
@@ -40,7 +43,7 @@ def job():
             for item in j['data']['diff']:
                 name = item['f14']
                 data = item['f12']
-                increase='+%'+str(item['f3'])
+                increase='%'+str(item['f3'])
                 new_price=item['f2']
                 table.append([data,name,increase,new_price])
             for row in table:
@@ -49,9 +52,10 @@ def job():
             
 
 def every_day_job():
-    schedule.every().day.at("21:30").do(job)
+    schedule.every().day.at("08:46").do(job)
     while True:
         schedule.run_pending()
 
 if __name__ == '__main__':
-    every_day_job()
+    # every_day_job()
+    stock_taking()
