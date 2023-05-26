@@ -73,7 +73,7 @@ def large_documents(url):
     
 # 多链接下载 
 def multi_link(urllist):
-    print('请输入要下载的链接，输入0结束：')
+    print('请输入要下载的链接，用逗号分开')
     me=multi_link_downloader(urllist=urllist)
     asyncio.run(me.asyncio_main()) # 运行异步主函数
 

@@ -5,6 +5,9 @@ def download():
     url=entry2.get()
     dl.large_documents(url=url)
 
+def begin_window2():
+    root.mainloop()
+
 root = ttk.Window()
 root.geometry("400x400")
 root.title("窗口示例")
@@ -14,4 +17,6 @@ bt2=ttk.Button(root,text="下载",width=30,command=download)
 lb2.pack()
 entry2.pack(pady=30)
 bt2.pack(pady=20)
-root.mainloop()
+
+if __name__=='__main__':
+    begin_window2()

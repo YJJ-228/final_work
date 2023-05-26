@@ -28,9 +28,11 @@ class Window():
     # 打开下载窗体
     def open_window1(self):
         import window_1
+        window_1.begin_window1()
     
     def open_window2(self):
         import window_2
-    
+        window_2.begin_window2()
     def open_window3(self):
         import window_3
+        window_3.begin_window3()
