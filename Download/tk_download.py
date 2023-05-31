@@ -2,7 +2,9 @@ import ttkbootstrap as ttk
 
 class Window():
     def __init__(self):
-        self.root = ttk.Window()
+        self.root = ttk.Toplevel()
+        self.style = ttk.Style()
+        self.style.theme_use('cerculean')
         self.root.geometry("400x400")
         self.root.title("窗口示例")
 

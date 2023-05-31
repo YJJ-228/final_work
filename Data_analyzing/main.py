@@ -33,7 +33,7 @@ class MainWindow:
         self.first = First()
 
     def open_window2(self):
-        sys.path.append("D:/Code/final_work/Download")
+        sys.path.append("./Download")
         import tk_download
         self.project2 = tk_download.Window()
 

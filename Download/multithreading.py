@@ -24,7 +24,7 @@ class Downloader:
         # 发起请求，获取响应内容
         response = requests.get(self.url, headers=headers, stream=True)
         # 打开文件，并移动指针到开始位置
-        with open('D:/Code/final_work/Download/file/video_D.mp4','wb')as f:
+        with open('Download/file/video_D.mp4','wb')as f:
             # 写入响应内容到文件中
             for chunk in response.iter_content(1024):
                 f.write(chunk)
