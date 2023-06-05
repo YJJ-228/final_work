@@ -1,10 +1,11 @@
+# 输入排名序号得到图表
 import sys
 sys.path.append("D:/Code/final_work/Data_analyzing/")
 import draw_functions as df
 
 def stock_list_making():
     codelist=[]
-    with open('D:/Code/final_work/Webcrawler/file.csv','r',encoding='utf-8')as f:
+    with open('Webcrawler/file.csv','r',encoding='utf-8')as f:
         while True:
             table=f.readline().split(',')
             if len(table)<2:
@@ -13,7 +14,7 @@ def stock_list_making():
     return codelist
 
 def get_exchange(code):
-    if code.startswith("600") or code.startswith("601") or code.startswith("603") or code.startswith("605"):
+    if code.startswith("600") or code.startswith("601") or code.startswith("603") or code.startswith("605") or code.startswith("688"):
         return "sh."
     elif code.startswith("000") or code.startswith("002") or code.startswith("300") or code.startswith("301"):
         return "sz."
