@@ -24,7 +24,7 @@ class DrawFunctions:
         profit_data = result_table.iloc[:, 0:9]
         profit_data = profit_data.astype({'净资产收益率':'float','销售净利率':'float','销售毛利率':'float','净利润':'float','每股收益':'float','主营营业收入':'float'})
         pd.options.display.float_format = '{:.4f}'.format # 保留4位小数
-        profit_data.to_csv('Data_analyzing/chart.csv', index=False, encoding ='utf-8')
+        profit_data.to_csv('Data_analyzing/chart/chart.csv', index=False, encoding ='utf-8')
         # growth_data = result_table.astype({'净资产同比增长率':'float','总资产同比增长率':'float','净利润同比增长率':'float','基本每股收益同比增长率':'float','归属母公司股东净利润同比增长率':'float'})
         # # 将文本格式转化为数值格式
         # pd.options.display.float_format = '{:.2f}'.format#保留2位百分数小数

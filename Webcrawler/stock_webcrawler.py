@@ -48,9 +48,9 @@ def job():
                 data = item['f12']
                 increase='%'+str(item['f3'])
                 new_price=item['f2']
-                table.append([data,name,increase,new_price])
+                table.append([data,name,increase,new_price])  #列表中添加一行的信息
             for row in table:
-                line = ','.join([str(elem) for elem in row]) + '\n'
+                line = ','.join([str(elem) for elem in row]) + '\n'#每一行里的每个元素加逗号
                 f.write(line)
             
 
