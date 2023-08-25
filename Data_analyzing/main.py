@@ -36,6 +36,7 @@ class MainWindow:
         sys.path.append("./Download")
         import tk_download
         self.project2 = tk_download.Window()
+    
 
 if __name__ == "__main__":
     app = MainWindow()
