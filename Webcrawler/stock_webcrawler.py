@@ -31,7 +31,7 @@ def stock_taking():
                 new_price=item['f2']
                 table.append([data,name,increase,new_price])
                 print('{:<11}{:<6}{:<11}{}'.format(data,name,increase,new_price))
-                with open('D:/Code/final_work/Webcrawler/file.csv','w',encoding='utf-8')as f:
+                with open('D:\Code\Python/final_work\Webcrawler/file.csv','w',encoding='utf-8')as f:
                     for row in table:
                         line = ','.join([str(elem) for elem in row]) + '\n'
                         f.write(line)
